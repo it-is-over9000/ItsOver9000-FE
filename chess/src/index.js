@@ -6,7 +6,7 @@ import App from './App';
 import Board from './components/Board'
 
 ReactDOM.render(
-<Board knightPosition={[0,0]} />, 
+    <Board knightPosition={[3,2]} />, 
 document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change

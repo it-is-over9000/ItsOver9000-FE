@@ -10,7 +10,7 @@ class App extends Component {
   render() {
     return (
       <div className="App">
-        <Board knightPosition={[0,0]}/>
+        <Board knightPosition={[3,2]} />
       </div>
     );
   }
