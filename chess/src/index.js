@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
 
-import Board from './components/Board'
+// import Board from './components/Board'
 
 ReactDOM.render(
     <App />, 
