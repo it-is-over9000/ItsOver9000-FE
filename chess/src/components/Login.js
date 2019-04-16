@@ -1,29 +1,24 @@
 import React from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+
+import { login } from '../actions'
 
 class Login extends React.Component {
-    constructor() {
-        super()
-
-        this.state = {
+    state = {
             username: '',
             password: '',
             welcomeMessage: ''
         }
-    }
+    
 
-    login = () => {
+    login = e => {
+        e.preventDefault()
+        // this.props.login(this.state.username).then(() =>{
+        //     this.props.history.push('/chess')
+        // })
         axios 
             .post ( 'https://over9000be2.herokuapp.com/', {username: this.state.username})
-            // .then (res =>
-            //     console.log(res)
-            //     .then(
-            //         localStorage.setItem('token', res.data.token)
-            //     )
-                // .then(
-                // this.setState({
-                //     welcomeMessage: res.data.message
-                // })))
             .then (res => {
                 localStorage.setItem('token', res.data.token)
                 this.setState({
@@ -65,4 +60,7 @@ class Login extends React.Component {
     }
 }
 
+
+
+// export default connect(null, { login })(Login)
 export default Login

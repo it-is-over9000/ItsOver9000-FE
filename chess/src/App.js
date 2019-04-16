@@ -8,13 +8,29 @@ import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
 import Navbar from './components/Navbar'
 
+import axios from 'axios'
+
 class App extends Component {
+
+  constructor(props) {
+    super(props)
+  }
 
   logout = () => (
     localStorage.removeItem('token')
   )
 
+  setFen = () => {
+  axios 
+    .post ( 'https://over9000be2.herokuapp.com/api/games', {fen: '4343'})
+    .then (res => {
+        console.log(res)
+    })
+    .catch(err => console.log(err))
+  }
+
   render() {
+    console.log(this.props)
     return (
       <Router>
         <div>
@@ -25,6 +41,7 @@ class App extends Component {
             <PrivateRoute exact path="/chess" component={WithMoveValidation} />
           </div>
         </div>
+        <button onClick={this.setFen}>set fen</button>
       </Router>
     );
   }

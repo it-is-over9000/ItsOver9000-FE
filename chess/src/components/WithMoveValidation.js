@@ -134,36 +134,45 @@ class HumanVsHuman extends Component {
       squareStyles: { [square]: { backgroundColor: "deepPink" } }
     });
 
-   
+    handleChanges = e => {
+        e.preventDefault()
+        this.setState ({
+            fen: e.target.value
+        })
+    }
+
+   passChange = (e, string) => {
+       e.preventDefault()
+       this.setState({
+           ...this.state,
+           fen: string
+       })
+   }
 
   render() {
     const { fen, dropSquareStyle, squareStyles } = this.state;
 
     return this.props.children({
-      squareStyles,
-      position: fen,
-      onMouseOverSquare: this.onMouseOverSquare,
-      onMouseOutSquare: this.onMouseOutSquare,
-      onDrop: this.onDrop,
-      dropSquareStyle,
-      onDragOverSquare: this.onDragOverSquare,
-      onSquareClick: this.onSquareClick,
-      onSquareRightClick: this.onSquareRightClick
-    });
+        squareStyles,
+        position: fen,
+        onMouseOverSquare: this.onMouseOverSquare,
+        onMouseOutSquare: this.onMouseOutSquare,
+        onDrop: this.onDrop,
+        dropSquareStyle,
+        onDragOverSquare: this.onDragOverSquare,
+        onSquareClick: this.onSquareClick,
+        onSquareRightClick: this.onSquareRightClick,
+        passChange: this.passChange
+        })        
   }
 }
 
 export default function WithMoveValidation(props) {
-    // const logout = () => (
-    //     localStorage.removeItem('token')
-    //     props.history.push('/')
-    //   )
 
   return (
       <div>
-        {/* <Navbar logout={logout} history={props.history} />   */}
         <div>
-        <HumanVsHuman>
+        <HumanVsHuman >
             {({
             position,
             onDrop,
@@ -173,8 +182,10 @@ export default function WithMoveValidation(props) {
             dropSquareStyle,
             onDragOverSquare,
             onSquareClick,
-            onSquareRightClick
+            onSquareRightClick,
+            passChange
             }) => (
+            <div>
             <Chessboard
                 id="humanVsHuman"
                 width={520}
@@ -192,6 +203,9 @@ export default function WithMoveValidation(props) {
                 onSquareClick={onSquareClick}
                 onSquareRightClick={onSquareRightClick}
             />
+            <Form passChange={passChange} />
+            </div>
+
             )}
         </HumanVsHuman>
         </div>
@@ -217,3 +231,30 @@ const squareStyling = ({ pieceSquare, history }) => {
     })
   };
 };
+
+class Form extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {
+            fen: ''
+        }
+    }
+
+
+
+    handleChanges = e => {
+        this.setState ({
+            fen: e.target.value
+        })
+    }
+
+    render() {
+
+        return (
+        <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
+            <input name="fen" placeholder="fen..." onChange={this.handleChanges} value={this.state.fen}></input>
+            <button type="submit">Test</button>
+        </form>)
+    }
+}
