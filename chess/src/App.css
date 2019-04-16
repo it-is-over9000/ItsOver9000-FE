@@ -1,0 +1,13 @@
+.App {
+  text-align: center;
+}
+
+#root {
+  height: 400px;
+}
+
+span {
+  font-size: 30px;
+  text-align: center;
+}
+
