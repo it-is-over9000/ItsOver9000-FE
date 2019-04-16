@@ -1,18 +1,24 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactDOM from 'react-dom'
+import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import WithMoveValidation from "./components/WithMoveValidation";
 import Login from './components/Login'
+import PrivateRoute from './components/PrivateRoute'
 
 class App extends Component {
   render() {
     return (
-      <div>
-        <div style={boardsContainer}>
-          <WithMoveValidation />
+      <Router>
+        <div>
+          <Route exact path="/" component={Login} />
+          <div style={boardsContainer}>
+          <PrivateRoute exact path="/chess" component={WithMoveValidation} />
+            {/* <WithMoveValidation /> */}
+          </div>
         </div>
-      </div>
+      </Router>
     );
   }
 }

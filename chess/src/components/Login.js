@@ -6,7 +6,8 @@ class Login extends React.Component {
         super()
 
         this.state = {
-            username: 'Josh',
+            username: '',
+            password: '',
             welcomeMessage: ''
         }
     }
@@ -14,22 +15,50 @@ class Login extends React.Component {
     login = () => {
         axios 
             .post ( 'https://over9000be2.herokuapp.com/', {username: this.state.username})
-            .then (res => 
+            // .then (res =>
+            //     console.log(res)
+            //     .then(
+            //         localStorage.setItem('token', res.data.token)
+            //     )
+                // .then(
+                // this.setState({
+                //     welcomeMessage: res.data.message
+                // })))
+            .then (res => {
+                localStorage.setItem('token', res.data.token)
                 this.setState({
                     welcomeMessage: res.data.message
-                }))
+                })
+            })
             .catch(err => console.log(err))
+            this.props.history.push('/chess')
+    }
 
-        // this.setState({
-        //     welcomeMessage: res.data.message
-        // }
-        // )
+    handleChanges = e => {
+        e.preventDefault()
+        this.setState ({
+            [e.target.name] : e.target.value
+        })
     }
 
     render() {
         return (
         <div>
-            <button onClick={this.login}>Login</button>
+            <form onSubmit={this.login}>
+                <input 
+                value={this.state.username}
+                name="username"
+                placeholder="...user"
+                onChange={this.handleChanges}
+                />
+                <input 
+                value={this.state.password}
+                name="password"
+                placeholder="...password"
+                onChange={this.handleChanges}
+                />
+                <button type="submit">Login</button>
+            </form>
             <h2>{this.state.welcomeMessage}</h2>
         </div>
         )
