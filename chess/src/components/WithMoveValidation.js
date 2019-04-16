@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Chess from "chess.js"; // import Chess from  "chess.js"(default) if recieving an error about new Chess() not being a constructor
 
 import Chessboard from "chessboardjsx";
+import Navbar from './Navbar'
 
 class HumanVsHuman extends Component {
   static propTypes = { children: PropTypes.func };
@@ -152,40 +153,47 @@ class HumanVsHuman extends Component {
   }
 }
 
-export default function WithMoveValidation() {
+export default function WithMoveValidation(props) {
+    const logout = () => (
+        localStorage.removeItem('token')
+      )
+
   return (
-    <div>
-      <HumanVsHuman>
-        {({
-          position,
-          onDrop,
-          onMouseOverSquare,
-          onMouseOutSquare,
-          squareStyles,
-          dropSquareStyle,
-          onDragOverSquare,
-          onSquareClick,
-          onSquareRightClick
-        }) => (
-          <Chessboard
-            id="humanVsHuman"
-            width={520}
-            position={position}
-            onDrop={onDrop}
-            onMouseOverSquare={onMouseOverSquare}
-            onMouseOutSquare={onMouseOutSquare}
-            boardStyle={{
-              borderRadius: "5px",
-              boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`
-            }}
-            squareStyles={squareStyles}
-            dropSquareStyle={dropSquareStyle}
-            onDragOverSquare={onDragOverSquare}
-            onSquareClick={onSquareClick}
-            onSquareRightClick={onSquareRightClick}
-          />
-        )}
-      </HumanVsHuman>
+      <div>
+        <Navbar logout={logout} history={props.history} />  
+        <div>
+        <HumanVsHuman>
+            {({
+            position,
+            onDrop,
+            onMouseOverSquare,
+            onMouseOutSquare,
+            squareStyles,
+            dropSquareStyle,
+            onDragOverSquare,
+            onSquareClick,
+            onSquareRightClick
+            }) => (
+            <Chessboard
+                id="humanVsHuman"
+                width={520}
+                position={position}
+                onDrop={onDrop}
+                onMouseOverSquare={onMouseOverSquare}
+                onMouseOutSquare={onMouseOutSquare}
+                boardStyle={{
+                borderRadius: "5px",
+                boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`
+                }}
+                squareStyles={squareStyles}
+                dropSquareStyle={dropSquareStyle}
+                onDragOverSquare={onDragOverSquare}
+                onSquareClick={onSquareClick}
+                onSquareRightClick={onSquareRightClick}
+            />
+            )}
+        </HumanVsHuman>
+        </div>
     </div>
   );
 }

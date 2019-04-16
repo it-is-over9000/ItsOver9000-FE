@@ -11,3 +11,24 @@ span {
   text-align: center;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center
+}
+
+.btn {
+  background: white;
+  border: 1px solid black;
+  padding: 10px 20px;
+  font-weight: bold;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(115,115,115,1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(115,115,115,1);
+  box-shadow: 2px 2px 5px 0px rgba(115,115,115,1);
+}
+
+.btn:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}
