@@ -154,13 +154,14 @@ class HumanVsHuman extends Component {
 }
 
 export default function WithMoveValidation(props) {
-    const logout = () => (
-        localStorage.removeItem('token')
-      )
+    // const logout = () => (
+    //     localStorage.removeItem('token')
+    //     props.history.push('/')
+    //   )
 
   return (
       <div>
-        <Navbar logout={logout} history={props.history} />  
+        {/* <Navbar logout={logout} history={props.history} />   */}
         <div>
         <HumanVsHuman>
             {({

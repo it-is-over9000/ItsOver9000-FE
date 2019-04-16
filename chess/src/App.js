@@ -18,8 +18,9 @@ class App extends Component {
     return (
       <Router>
         <div>
-          {/* <Navbar logout={this.logout}/> */}
+          <Navbar logout={this.logout}/>
           <Route exact path="/" component={Login} />
+          {/* <Route path="/chess" render={props => <Navbar logout={this.logout} {...props} />} /> */}
           <div style={boardsContainer}>
             <PrivateRoute exact path="/chess" component={WithMoveValidation} />
           </div>
