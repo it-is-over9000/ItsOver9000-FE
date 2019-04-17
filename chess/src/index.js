@@ -6,6 +6,8 @@ import { Provider } from 'react-redux'
 import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
+import ApiButtons from './components/ApiButtons'
+
 import reducer from './reducers'
 
 import './index.css';
@@ -17,7 +19,7 @@ const store = createStore(reducer,
     composeEnhancer(applyMiddleware(thunk, logger)));
 
 ReactDOM.render(
-        <App />,
+        <ApiButtons />,
 document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
