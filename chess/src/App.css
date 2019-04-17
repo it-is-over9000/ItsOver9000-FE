@@ -11,3 +11,69 @@ span {
   text-align: center;
 }
 
+.navbar {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-bottom: 20px;
+  -webkit-box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.4);
+  box-shadow: 0px 10px 5px -2px rgba(0,0,0,0.4);
+}
+
+.btn {
+  background: white;
+  border: 1px solid black;
+  padding: 10px 20px;
+  font-weight: bold;
+  -webkit-box-shadow: 2px 2px 5px 0px rgba(115,115,115,1);
+  -moz-box-shadow: 2px 2px 5px 0px rgba(115,115,115,1);
+  box-shadow: 2px 2px 5px 0px rgba(115,115,115,1);
+}
+
+.btn:hover {
+  background: black;
+  color: white;
+  cursor: pointer;
+}
+
+.login-form {
+  padding: 40px 80px;
+  background: black;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  background: black;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: 10px 10px 0 10px;
+  font-size: 20px;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+
+.login-form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  width: 80px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  background: white;
+  color: black;
+}
+

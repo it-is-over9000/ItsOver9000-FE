@@ -1,29 +1,24 @@
 import React from 'react'
 import axios from 'axios'
+import { connect } from 'react-redux'
+
+import { login } from '../actions'
 
 class Login extends React.Component {
-    constructor() {
-        super()
-
-        this.state = {
+    state = {
             username: '',
             password: '',
             welcomeMessage: ''
         }
-    }
+    
 
-    login = () => {
+    login = e => {
+        e.preventDefault()
+        // this.props.login(this.state.username).then(() =>{
+        //     this.props.history.push('/chess')
+        // })
         axios 
-            .post ( 'https://over9000be2.herokuapp.com/', {username: this.state.username})
-            // .then (res =>
-            //     console.log(res)
-            //     .then(
-            //         localStorage.setItem('token', res.data.token)
-            //     )
-                // .then(
-                // this.setState({
-                //     welcomeMessage: res.data.message
-                // })))
+            .post ( 'https://over9000be2.herokuapp.com/api/login', {username: this.state.username})
             .then (res => {
                 localStorage.setItem('token', res.data.token)
                 this.setState({
@@ -43,21 +38,21 @@ class Login extends React.Component {
 
     render() {
         return (
-        <div>
-            <form onSubmit={this.login}>
+        <div className="login-form-wrapper">
+            <form onSubmit={this.login} className="login-form">
                 <input 
                 value={this.state.username}
                 name="username"
-                placeholder="...user"
+                placeholder="user"
                 onChange={this.handleChanges}
                 />
                 <input 
                 value={this.state.password}
                 name="password"
-                placeholder="...password"
+                placeholder="password"
                 onChange={this.handleChanges}
                 />
-                <button type="submit">Login</button>
+                <button type="submit" className="login-btn">Login</button>
             </form>
             <h2>{this.state.welcomeMessage}</h2>
         </div>
@@ -65,4 +60,7 @@ class Login extends React.Component {
     }
 }
 
+
+
+// export default connect(null, { login })(Login)
 export default Login

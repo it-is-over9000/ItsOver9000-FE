@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import Chess from "chess.js"; // import Chess from  "chess.js"(default) if recieving an error about new Chess() not being a constructor
 
 import Chessboard from "chessboardjsx";
+import Navbar from './Navbar'
 
 class HumanVsHuman extends Component {
   static propTypes = { children: PropTypes.func };
@@ -133,59 +134,81 @@ class HumanVsHuman extends Component {
       squareStyles: { [square]: { backgroundColor: "deepPink" } }
     });
 
-   
+    handleChanges = e => {
+        e.preventDefault()
+        this.setState ({
+            fen: e.target.value
+        })
+    }
+
+   passChange = (e, string) => {
+       e.preventDefault()
+       this.setState({
+           ...this.state,
+           fen: string
+       })
+   }
 
   render() {
     const { fen, dropSquareStyle, squareStyles } = this.state;
 
     return this.props.children({
-      squareStyles,
-      position: fen,
-      onMouseOverSquare: this.onMouseOverSquare,
-      onMouseOutSquare: this.onMouseOutSquare,
-      onDrop: this.onDrop,
-      dropSquareStyle,
-      onDragOverSquare: this.onDragOverSquare,
-      onSquareClick: this.onSquareClick,
-      onSquareRightClick: this.onSquareRightClick
-    });
+        squareStyles,
+        position: fen,
+        onMouseOverSquare: this.onMouseOverSquare,
+        onMouseOutSquare: this.onMouseOutSquare,
+        onDrop: this.onDrop,
+        dropSquareStyle,
+        onDragOverSquare: this.onDragOverSquare,
+        onSquareClick: this.onSquareClick,
+        onSquareRightClick: this.onSquareRightClick,
+        passChange: this.passChange
+        })        
   }
 }
 
-export default function WithMoveValidation() {
+export default function WithMoveValidation(props) {
+
   return (
-    <div>
-      <HumanVsHuman>
-        {({
-          position,
-          onDrop,
-          onMouseOverSquare,
-          onMouseOutSquare,
-          squareStyles,
-          dropSquareStyle,
-          onDragOverSquare,
-          onSquareClick,
-          onSquareRightClick
-        }) => (
-          <Chessboard
-            id="humanVsHuman"
-            width={520}
-            position={position}
-            onDrop={onDrop}
-            onMouseOverSquare={onMouseOverSquare}
-            onMouseOutSquare={onMouseOutSquare}
-            boardStyle={{
-              borderRadius: "5px",
-              boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`
-            }}
-            squareStyles={squareStyles}
-            dropSquareStyle={dropSquareStyle}
-            onDragOverSquare={onDragOverSquare}
-            onSquareClick={onSquareClick}
-            onSquareRightClick={onSquareRightClick}
-          />
-        )}
-      </HumanVsHuman>
+      <div>
+        <div>
+        <HumanVsHuman >
+            {({
+            position,
+            onDrop,
+            onMouseOverSquare,
+            onMouseOutSquare,
+            squareStyles,
+            dropSquareStyle,
+            onDragOverSquare,
+            onSquareClick,
+            onSquareRightClick,
+            passChange
+            }) => (
+            <div>
+            <Chessboard
+                id="humanVsHuman"
+                width={520}
+                position={position}
+                onDrop={onDrop}
+                onMouseOverSquare={onMouseOverSquare}
+                onMouseOutSquare={onMouseOutSquare}
+                boardStyle={{
+                borderRadius: "5px",
+                boxShadow: `0 5px 15px rgba(0, 0, 0, 0.5)`
+                }}
+                squareStyles={squareStyles}
+                dropSquareStyle={dropSquareStyle}
+                onDragOverSquare={onDragOverSquare}
+                onSquareClick={onSquareClick}
+                onSquareRightClick={onSquareRightClick}
+            />
+            <Form passChange={passChange} />
+            </div>
+
+            )}
+        </HumanVsHuman>
+        </div>
     </div>
   );
 }
@@ -208,3 +231,30 @@ const squareStyling = ({ pieceSquare, history }) => {
     })
   };
 };
+
+class Form extends React.Component {
+    constructor() {
+        super()
+
+        this.state = {
+            fen: ''
+        }
+    }
+
+
+
+    handleChanges = e => {
+        this.setState ({
+            fen: e.target.value
+        })
+    }
+
+    render() {
+
+        return (
+        <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
+            <input name="fen" placeholder="fen..." onChange={this.handleChanges} value={this.state.fen}></input>
+            <button type="submit">Test</button>
+        </form>)
+    }
+}
