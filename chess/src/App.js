@@ -39,7 +39,7 @@ class App extends Component {
           {/* <Navbar logout={this.logout}/> */}
           <Route path="/chess" render={props => <Navbar logout={this.logout} {...props} />} />
 
-          <Route exact path="/" component={FormHolder} />
+          <Route path="/" component={FormHolder} />
           {/* <Route exact path="/register" render={props => <Register {...props}/>} /> */}
           {/* <Route path="/chess" render={props => <Navbar logout={this.logout} {...props} />} /> */}
           <div style={boardsContainer}>
