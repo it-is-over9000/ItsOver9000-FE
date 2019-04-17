@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "chess.js": "^0.10.2",
-    "chessboardjsx": "^2.3.0"
-  }
-}

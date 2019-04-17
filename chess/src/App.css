@@ -36,3 +36,44 @@ span {
   color: white;
   cursor: pointer;
 }
+
+.login-form {
+  padding: 40px 80px;
+  background: black;
+  display: flex;
+  flex-direction: column;
+}
+
+input {
+  background: black;
+  border: none;
+  border-bottom: 1px solid white;
+  padding: 10px 10px 0 10px;
+  font-size: 20px;
+  color: white;
+}
+
+::placeholder {
+  color: white;
+}
+
+.login-form-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.login-btn {
+  width: 80px;
+  margin-top: 20px;
+  padding: 10px 20px;
+  background: black;
+  color: white;
+  border: 1px solid white;
+}
+
+.login-btn:hover {
+  cursor: pointer;
+  background: white;
+  color: black;
+}
+
