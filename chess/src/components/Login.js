@@ -1,6 +1,10 @@
 import React from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
+import { NavLink, Route } from 'react-router-dom'
+import Register from './Register'
+
+
 
 import { login } from '../actions'
 
@@ -38,23 +42,25 @@ class Login extends React.Component {
 
     render() {
         return (
-        <div className="login-form-wrapper">
-            <form onSubmit={this.login} className="login-form">
-                <input 
-                value={this.state.username}
-                name="username"
-                placeholder="user"
-                onChange={this.handleChanges}
-                />
-                <input 
-                value={this.state.password}
-                name="password"
-                placeholder="password"
-                onChange={this.handleChanges}
-                />
-                <button type="submit" className="login-btn">Login</button>
-            </form>
-            <h2>{this.state.welcomeMessage}</h2>
+        <div className="login-wrapper-container">
+            <div className="login-form-wrapper">
+                <form onSubmit={this.login} className="login-form">
+                    <input 
+                    value={this.state.username}
+                    name="username"
+                    placeholder="user"
+                    onChange={this.handleChanges}
+                    />
+                    <input 
+                    value={this.state.password}
+                    name="password"
+                    placeholder="password"
+                    onChange={this.handleChanges}
+                    />
+                    <button type="submit" className="login-btn">Login</button>
+                </form>
+                <h2>{this.state.welcomeMessage}</h2>
+            </div>
         </div>
         )
     }

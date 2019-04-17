@@ -77,3 +77,31 @@ input {
   color: black;
 }
 
+.login-wrapper-container {
+    display: flex;
+    justify-content: center
+}
+
+.login-form-wrapper {
+   display: flex;
+    flex-direction: column;
+}
+
+.tabs {
+    display: flex;
+    justify-content: space-around;
+    
+}
+
+.tabs a {
+  width: 50%;
+  padding: 20px 0;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.active {
+  color: white;
+  background: black;
+}
+
