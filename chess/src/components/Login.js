@@ -42,8 +42,7 @@ class Login extends React.Component {
 
     render() {
         return (
-        <div className="login-wrapper-container">
-            <div className="login-form-wrapper">
+            <div>
                 <form onSubmit={this.login} className="login-form">
                     <input 
                     value={this.state.username}
@@ -61,7 +60,7 @@ class Login extends React.Component {
                 </form>
                 <h2>{this.state.welcomeMessage}</h2>
             </div>
-        </div>
+        
         )
     }
 }

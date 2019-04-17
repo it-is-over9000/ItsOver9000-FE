@@ -40,9 +40,7 @@ class Register extends React.Component {
 
     render() {
         return (
-
-        <div className="login-wrapper-container">
-            <div className="login-form-wrapper">
+            <div>
                 <form onSubmit={this.register} className="login-form">
                     <input 
                     value={this.state.username}
@@ -60,8 +58,6 @@ class Register extends React.Component {
                 </form>
                 <h2>{this.state.welcomeMessage}</h2>
             </div>
-
-        </div>
         )
     }
 }
