@@ -8,6 +8,7 @@ import Login from './components/Login'
 import PrivateRoute from './components/PrivateRoute'
 import Navbar from './components/Navbar'
 import Register from './components/Register'
+import FormHolder from './components/FormHolder'
 
 import axios from 'axios'
 
@@ -36,9 +37,10 @@ class App extends Component {
       <Router>
         <div>
           {/* <Navbar logout={this.logout}/> */}
-          <Route path="/" render={props => <Navbar logout={this.logout} {...props} />} />
-          <Route exact path="/" component={Login} />
-          <Route exact path="/register" render={props => <Register {...props}/>} />
+          <Route path="/chess" render={props => <Navbar logout={this.logout} {...props} />} />
+
+          <Route exact path="/" component={FormHolder} />
+          {/* <Route exact path="/register" render={props => <Register {...props}/>} /> */}
           {/* <Route path="/chess" render={props => <Navbar logout={this.logout} {...props} />} /> */}
           <div style={boardsContainer}>
             <PrivateRoute exact path="/chess" component={WithMoveValidation} />
