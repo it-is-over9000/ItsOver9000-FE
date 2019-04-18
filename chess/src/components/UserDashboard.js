@@ -51,7 +51,7 @@ class UserDashboard extends React.Component {
         <div>
             <div className="navbar">
                 <Link to="/account">Account</Link>
-                <h2>It's Over 9000!</h2>
+                <Link to="/chess"><h2>It's Over 9000!</h2></Link>
                 <div className="menu" onClick={this.logout}>Log Out</div>
             </div>
             <div className="user-dashboard">

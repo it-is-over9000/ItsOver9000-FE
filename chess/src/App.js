@@ -10,6 +10,7 @@ import Navbar from './components/Navbar'
 import Register from './components/Register'
 import FormHolder from './components/FormHolder'
 import UserDashboard from './components/UserDashboard'
+import PrivateLoginRoute from './components/PrivateLoginRoute'
 
 import axios from 'axios'
 
@@ -37,7 +38,7 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          {/* <Route path="/" component={FormHolder} /> */}
+          <Route path="/" component={FormHolder} />
           <Route path="/chess" render={props => <Navbar logout={this.logout} {...props} />} />
           <Route path="/account" component={UserDashboard} />
           <div style={boardsContainer}>

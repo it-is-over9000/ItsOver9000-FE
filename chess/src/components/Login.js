@@ -1,7 +1,7 @@
 import React from 'react'
 import axios from 'axios'
 import { connect } from 'react-redux'
-import { NavLink, Route } from 'react-router-dom'
+import { NavLink, Route, Link } from 'react-router-dom'
 import Register from './Register'
 
 

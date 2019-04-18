@@ -77,7 +77,7 @@ class ApiButtons extends React.Component {
 
                 <button onClick={this.login}>Login</button>
 
-                <button onClick={this.getUsers}>Change password</button>
+                <button onClick={this.getUsers}>Get Users</button>
 
                 <button onClick={this.changeName}>Change Name</button>
 

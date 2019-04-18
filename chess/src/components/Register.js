@@ -9,7 +9,8 @@ class Register extends React.Component {
     state = {
             username: '',
             password: '',
-            welcomeMessage: ''
+            welcomeMessage: '',
+            statusText: '',
         }
     
 
@@ -21,7 +22,6 @@ class Register extends React.Component {
                 .then (res => {
                     console.log(res)
                     localStorage.setItem('token', res.data.token)
-                    // localStorage.setItem('token', res.data.token)
                 })
                 .catch(err => console.log(err))
                 this.props.history.push('/chess')
@@ -52,7 +52,7 @@ class Register extends React.Component {
                     />
                     <button type="submit" className="login-btn">Register</button>
                 </form>
-                <h2>{this.state.welcomeMessage}</h2>
+                {/* <h2 className="success-message">User {this.state.statusText}</h2> */}
             </div>
         )
     }
