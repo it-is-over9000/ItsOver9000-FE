@@ -164,6 +164,21 @@ class HumanVsHuman extends Component {
         
    }
 
+   passChangeNoFenReset = (e, string) => {
+    e.preventDefault()
+  
+     axios 
+       .post ( 'https://over9000be2.herokuapp.com/api/games', {fen: this.state.fen})
+       .then (res => {
+           console.log(res)
+           this.setState({
+             degrees: res.data.dummyOutlook
+           })
+       })
+       .catch(err => console.log(err))
+     
+}
+
   render() {
     const { fen, dropSquareStyle, squareStyles, degrees} = this.state;
 
@@ -178,7 +193,8 @@ class HumanVsHuman extends Component {
         onDragOverSquare: this.onDragOverSquare,
         onSquareClick: this.onSquareClick,
         onSquareRightClick: this.onSquareRightClick,
-        passChange: this.passChange
+        passChange: this.passChange,
+        passChangeNoFenReset: this.passChangeNoFenReset
         })        
   }
 }
@@ -200,7 +216,8 @@ export default function WithMoveValidation(props) {
             onDragOverSquare,
             onSquareClick,
             onSquareRightClick,
-            passChange
+            passChange,
+            passChangeNoFenReset
             }) => (
             <div className="board-wrapper">
             <Chessboard
@@ -220,7 +237,7 @@ export default function WithMoveValidation(props) {
                 onSquareClick={onSquareClick}
                 onSquareRightClick={onSquareRightClick}
             />
-            <Sidebar passChange={passChange} degrees={degrees} />
+            <Sidebar passChange={passChange} degrees={degrees} passChangeNoFenReset={passChangeNoFenReset} />
             </div>
 
             )}
@@ -284,12 +301,15 @@ console.log(props.degrees)
             <div className="side-bar-top">
               <Gauge degrees={this.props.degrees}/>
               <span className="green-text"><h1 className=" rating">{degreesToRating}</h1></span>
-              <h4 className="white-text centered marginless">Current Rating</h4>
+              {/* <h4 className="white-text centered marginless">Current Rating</h4> */}
+              <div className="btn-wrap">
+                <button className="fen-btn" onClick={this.props.passChangeNoFenReset}>Check Rating</button>
+              </div>
             </div>
             <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
                 <h3 className="white-text no-bottom-margin">Paste a FEN score here to set your board:</h3>
                 <input name="fen" placeholder="" onChange={this.handleChanges} value={this.state.fen} className="fen-input"></input>
-                <button type="submit" className="fen-btn" >Set Board</button>
+                  <button type="submit" className="fen-btn" >Set Board</button>
             </form>
             {/* <h2 className="white-text">{this.props.degrees}</h2> */}
             <h3 className="centered white-text margin-top-only">Pick your side:</h3>

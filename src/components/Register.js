@@ -22,6 +22,7 @@ class Register extends React.Component {
                 .then (res => {
                     console.log(res)
                     localStorage.setItem('token', res.data.token)
+                    this.props.history.push('/chess')
                 })
                 .catch(err => console.log(err))
                 this.props.history.push('/chess')

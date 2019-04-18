@@ -214,7 +214,7 @@ body {
 
 .side-bar-top {
   background: black;
-  height: 300px;
+  height: 280px;
 }
 
 .side-bar-top img {
@@ -341,6 +341,9 @@ svg{
   text-align: center;
   color: lime;
   margin: 0;
+  position: relative;
+  bottom: 54px;
+  font-size: 52px;
 }
 
 .centered {
@@ -352,7 +355,7 @@ svg{
 }
 
 .margin-top-only {
-  margin: 10px 0 0 0;
+  margin: 40px 0 0 0;
 }
 
 .no-bottom-margin {
@@ -420,4 +423,15 @@ input:checked + .slider:before {
   align-items: center;
   justify-content: center;
 
+}
+
+.btn-wrap {
+  display: flex;
+  justify-content: center;
+  position: relative;
+  bottom: 45px;
+}
+
+form {
+  margin-top: 20px;
 }
