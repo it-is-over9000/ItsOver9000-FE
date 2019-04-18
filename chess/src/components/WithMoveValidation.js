@@ -5,6 +5,8 @@ import Chess from "chess.js"; // import Chess from  "chess.js"(default) if recie
 import Chessboard from "chessboardjsx";
 import Navbar from './Navbar'
 
+import axios from 'axios'
+
 class HumanVsHuman extends Component {
   static propTypes = { children: PropTypes.func };
 
@@ -147,6 +149,14 @@ class HumanVsHuman extends Component {
            ...this.state,
            fen: string
        })
+
+        axios 
+          .post ( 'https://over9000be2.herokuapp.com/api/games', {fen: this.state.fen})
+          .then (res => {
+              console.log(res)
+          })
+          .catch(err => console.log(err))
+        
    }
 
   render() {
@@ -185,7 +195,7 @@ export default function WithMoveValidation(props) {
             onSquareRightClick,
             passChange
             }) => (
-            <div>
+            <div className="board-wrapper">
             <Chessboard
                 id="humanVsHuman"
                 width={520}
@@ -203,7 +213,7 @@ export default function WithMoveValidation(props) {
                 onSquareClick={onSquareClick}
                 onSquareRightClick={onSquareRightClick}
             />
-            <Form passChange={passChange} />
+            <Sidebar passChange={passChange} />
             </div>
 
             )}
@@ -232,7 +242,7 @@ const squareStyling = ({ pieceSquare, history }) => {
   };
 };
 
-class Form extends React.Component {
+class Sidebar extends React.Component {
     constructor() {
         super()
 
@@ -252,9 +262,18 @@ class Form extends React.Component {
     render() {
 
         return (
-        <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
-            <input name="fen" placeholder="fen..." onChange={this.handleChanges} value={this.state.fen}></input>
-            <button type="submit">Test</button>
-        </form>)
+        <div className="sidebar-wrapper">
+          <div className="sidebar">
+            <div className="side-bar-top">
+              {/* <img src="https://banner2.kisspng.com/20180330/ece/kisspng-pie-chart-diagram-computer-icons-charts-5abed49e9f3a71.3953296515224557106522.jpg"></img> */}
+            </div>
+            <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
+                <h3 className="white-text">Paste a FEN score here to set your board:</h3>
+                <input name="fen" placeholder="" onChange={this.handleChanges} value={this.state.fen} className="fen-input"></input>
+                <button type="submit" className="fen-btn" >Set Board</button>
+            </form>
+          </div>
+        </div>
+        )
     }
 }

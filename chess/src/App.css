@@ -195,3 +195,55 @@ body {
 .success-message {
   color: green;
 }
+
+.board-wrapper {
+  display: flex;
+}
+
+.sidebar-wrapper {
+  margin-left: 10px;
+}
+
+.sidebar {
+  width: 300px;
+}
+
+.side-bar-top {
+  background: white;
+  height: 300px;
+}
+
+.side-bar-top img {
+  width: 100px;
+  height: 100px;
+}
+
+.white-text {
+  color: white;
+}
+
+.fen-input {
+  width: 60%;
+  margin-right: 10px;
+}
+
+.fen-btn {
+  
+  /* height: 50px;
+  width: 160px;
+  margin-top: 40px;
+  margin-bottom: -20px; */
+  font-size: 14px;
+  color: white;
+  background-color: #151924;
+  border: 3.5px solid white;
+  border-radius: 30px;
+  opacity: 1.0;
+  outline: none;
+}
+
+.fen-btn:hover {
+  cursor: pointer;
+  background: white;
+  color: black;
+}
