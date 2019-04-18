@@ -140,6 +140,7 @@ input {
   /* border: 1px solid black; */
   text-align: center;
   text-decoration: none;
+  align-items: center;
 }
 
 .active {
@@ -352,6 +353,10 @@ svg{
 
 .margin-top-only {
   margin: 10px 0 0 0;
+}
+
+.no-bottom-margin {
+  margin-bottom: 0;
 }
 
 .switch {
