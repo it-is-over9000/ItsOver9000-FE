@@ -29,6 +29,16 @@ class Gauge extends React.Component {
 
         return (
         <div class="art-cont">
+            
+            <div className="gauge-numbers">
+                <h3 className="white-text no-margin gauge1"> 101 </h3>
+                <h3 className="white-text no-margin gauge2"> 775 </h3>
+                <h3 className="white-text no-margin gauge3"> 1450 </h3>
+                <h3 className="white-text no-margin gauge4"> 2225 </h3>
+                <h3 className="white-text no-margin gauge5"> 2800 </h3>
+            </div>
+
+
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 400">
                 <g class="cls-1">
                   <g id="Layer_1" data-name="Layer 1">

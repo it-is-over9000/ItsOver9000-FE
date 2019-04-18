@@ -206,10 +206,13 @@ body {
 
 .sidebar {
   width: 300px;
+  border: 1px solid white;
+  padding: 10px;
+  height: 500px;
 }
 
 .side-bar-top {
-  background: white;
+  background: black;
   height: 300px;
 }
 
@@ -275,7 +278,7 @@ svg{
 }
 
 .cls-6 {
-  fill: #e3e3e3;
+  fill: white;
 }
 
 .cls-7 {
@@ -287,9 +290,62 @@ svg{
 }
 
 .cls-9 {
-  fill: #fff;
+  /* fill: #fff; */
 }
 
 .cls-10 {
-  fill: #666;
+  /* fill: #666; */
+}
+
+.no-margin {
+  margin: 0;
+  display: inline-block;
+}
+
+.gauge-numbers {
+  text-align: center;
+  font-size: 10px;
+}
+.gauge1 {
+  position: relative;
+  top: 150px;
+  left: -70px;
+}
+
+.gauge2 {
+  position: relative;
+  top: 80px;
+  left: -65px;
+}
+
+.gauge3 {
+  position: relative;
+  top: 42px;
+  left: 5px;
+}
+
+.gauge4 {
+  position: relative;
+  top: 80px;
+  left: 70px;
+}
+
+.gauge5 {
+  position: relative;
+  top: 150px;
+  left: 75px;
+}
+
+.rating {
+  text-align: center;
+  color: lime;
+  margin: 0;
+}
+
+.centered {
+  text-align: center;
+}
+
+.marginless {
+  margin: 0;
 }

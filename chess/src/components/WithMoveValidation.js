@@ -275,12 +275,16 @@ console.log(props.degrees)
 
 
     render() {
+      console.log(this.props.degrees)
+      const degreesToRating = Math.round(([this.props.degrees] * 2800) /180)
 
         return (
         <div className="sidebar-wrapper">
           <div className="sidebar">
             <div className="side-bar-top">
               <Gauge degrees={this.props.degrees}/>
+              <span className="green-text"><h1 className=" rating">{degreesToRating}</h1></span>
+              <h4 className="white-text centered marginless">Current Rating</h4>
             </div>
             <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
                 <h3 className="white-text">Paste a FEN score here to set your board:</h3>
