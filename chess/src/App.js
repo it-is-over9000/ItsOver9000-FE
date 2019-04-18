@@ -36,15 +36,15 @@ class App extends Component {
     console.log(this.props)
     return (
       <Router>
-        <div>
-          <Route path="/" component={FormHolder} />
+        <div className="container">
+          {/* <Route path="/" component={FormHolder} /> */}
           <Route path="/chess" render={props => <Navbar logout={this.logout} {...props} />} />
           <Route path="/account" component={UserDashboard} />
           <div style={boardsContainer}>
             <PrivateRoute exact path="/chess" component={WithMoveValidation} />
           </div>
         </div>
-        <button onClick={this.setFen}>set fen</button>
+        {/* <button onClick={this.setFen}>set fen</button> */}
       </Router>
     );
   }
@@ -58,6 +58,8 @@ const boardsContainer = {
   alignItems: "center",
   flexWrap: "wrap",
   width: "100vw",
-  marginTop: 30,
-  marginBottom: 50
+  // marginTop: 30,
+  // marginBottom: 50,
+  background: "black",
+  height: "100vh"
 };

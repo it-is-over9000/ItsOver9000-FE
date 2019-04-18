@@ -7,6 +7,7 @@ import thunk from 'redux-thunk'
 import logger from 'redux-logger'
 
 import ApiButtons from './components/ApiButtons'
+import UserDashboard from './components/UserDashboard'
 
 import reducer from './reducers'
 

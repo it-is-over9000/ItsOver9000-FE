@@ -1,6 +1,8 @@
 import React from 'react'
 import withAuth from '../utils/AuthHeader'
 
+import { Link } from 'react-router-dom'
+
 class UserDashboard extends React.Component {
 
     constructor() {
@@ -47,17 +49,24 @@ class UserDashboard extends React.Component {
     const username = localStorage.getItem('user')
     return (
         <div>
-            <h1>Hi there {username}</h1>
-            <form onSubmit={this.changeName} className="login-form">
-                    <input 
-                    value={this.state.username}
-                    name="username"
-                    placeholder="New name"
-                    onChange={this.handleChanges}
-                    />
-                    <button type="submit" className="login-btn">Change my username</button>
-                </form>
-            <button onClick={this.deleteUser}>Delete my account</button>
+            <div className="navbar">
+                <Link to="/account">Account</Link>
+                <h2>It's Over 9000!</h2>
+                <div className="menu" onClick={this.logout}>Log Out</div>
+            </div>
+            <div className="user-dashboard">
+                <h1 className="account-h1">Hi there {username}</h1>
+                <form onSubmit={this.changeName} className="login-form">
+                    <button type="submit" className="changename-btn">Change my username</button>
+                        <input 
+                        value={this.state.username}
+                        name="username"
+                        placeholder="New name"
+                        onChange={this.handleChanges}
+                        />
+                    </form>
+                <button onClick={this.deleteUser} className="delete-btn">Delete my account</button>
+            </div>
         </div>
     )
     }

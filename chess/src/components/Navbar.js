@@ -28,9 +28,9 @@ class Navbar extends React.Component {
     if (localStorage.getItem('token')) {
     return (
     <div className="navbar">
-        <h2>Chess App</h2>
-        <button className = "btn" onClick={this.logout}>Log Out</button>
-        <Link to="/account"><button className = "btn" onClick={this.getUser}>Account</button></Link>
+        <Link to="/account">Account</Link>
+        <h2>It's Over 9000!</h2>
+        <div className = "menu" onClick={this.logout}>Log Out</div>
        
     </div>
     )} else {
