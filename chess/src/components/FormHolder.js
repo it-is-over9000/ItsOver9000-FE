@@ -8,13 +8,15 @@ const FormHolder = () => {
     return (
         <div className="login-wrapper-container">
             <div className="login-form-wrapper">
+                <div className="login-wrapper-interior">
                 <div className="tabs">
-                    <NavLink to="/login" >Login</NavLink>
                     <NavLink to="/register" >Register</NavLink>
+                    <NavLink to="/login" >Login</NavLink>
                 </div>
-                <Route exact path="/" render={props => <Redirect to="/login" /> }/>
+                <Route exact path="/" render={props => <Redirect to="/login"/>} />
+                <Route path="/register" render={props => <Register {...props}/>} />
                 <Route exact path="/login" render={props => <Login {...props}/>} />
-                <Route exact path="/register" render={props => <Register {...props}/>} />
+                </div>
             </div>
         </div>
 

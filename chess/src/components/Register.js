@@ -13,23 +13,19 @@ class Register extends React.Component {
         }
     
 
-    register = e => {
-        e.preventDefault()
-        // this.props.login(this.state.username).then(() =>{
-        //     this.props.history.push('/chess')
-        // })
-        axios 
-            .post ( 'https://over9000be2.herokuapp.com/api/register', {username: this.state.username, password: this.state.password})
-            .then (res => {
-                console.log(res)
-                localStorage.setItem('token', res.data.token)
-                this.setState({
-                    welcomeMessage: res.data.message
+        register = e => {
+            e.preventDefault()
+            localStorage.setItem('user', this.state.username)
+            axios 
+                .post ( 'https://over9000be2.herokuapp.com/api/register', {username: this.state.username, password: this.state.password})
+                .then (res => {
+                    console.log(res)
+                    localStorage.setItem('token', res.data.token)
+                    // localStorage.setItem('token', res.data.token)
                 })
-            })
-            .catch(err => console.log(err))
-            this.props.history.push('/chess')
-    }
+                .catch(err => console.log(err))
+                this.props.history.push('/chess')
+        }
 
     handleChanges = e => {
         e.preventDefault()

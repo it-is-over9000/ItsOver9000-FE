@@ -19,7 +19,7 @@ const store = createStore(reducer,
     composeEnhancer(applyMiddleware(thunk, logger)));
 
 ReactDOM.render(
-        <ApiButtons />,
+        <App />,
 document.getElementById('root'));
 
 // If you want your app to work offline and load faster, you can change
