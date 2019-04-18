@@ -14,20 +14,15 @@ class Login extends React.Component {
             password: '',
             welcomeMessage: ''
         }
-    
 
     login = e => {
         e.preventDefault()
-        // this.props.login(this.state.username).then(() =>{
-        //     this.props.history.push('/chess')
-        // })
+        
         axios 
-            .post ( 'https://over9000be2.herokuapp.com/api/login', {username: this.state.username})
+            .post ( 'https://over9000be2.herokuapp.com/api/login', {username: 'newname', password: 'password'})
             .then (res => {
+                console.log(res)
                 localStorage.setItem('token', res.data.token)
-                this.setState({
-                    welcomeMessage: res.data.message
-                })
             })
             .catch(err => console.log(err))
             this.props.history.push('/chess')
