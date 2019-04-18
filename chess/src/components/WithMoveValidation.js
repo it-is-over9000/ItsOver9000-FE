@@ -291,7 +291,16 @@ console.log(props.degrees)
                 <input name="fen" placeholder="" onChange={this.handleChanges} value={this.state.fen} className="fen-input"></input>
                 <button type="submit" className="fen-btn" >Set Board</button>
             </form>
-            <h2 className="white-text">{this.props.degrees}</h2>
+            {/* <h2 className="white-text">{this.props.degrees}</h2> */}
+            <h3 className="centered white-text margin-top-only">Pick your side:</h3>
+            <div className="toggle-container">
+            <h2 className="white-text">White</h2>
+              <label class="switch">
+                <input type="checkbox"/>
+                <span class="slider"></span>
+              </label>
+            <h2 className="white-text">Black</h2>
+            </div>
           </div>
         </div>
         )
