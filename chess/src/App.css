@@ -247,3 +247,49 @@ body {
   background: white;
   color: black;
 }
+
+svg{
+  max-width: 800px;
+  width: 100%;
+}
+
+.cls-1 {
+  isolation: isolate;
+}
+
+.cls-2 {
+  fill: #cfcfcf;
+}
+
+.cls-3 {
+  fill: #bcbcbc;
+}
+
+.cls-4 {
+  fill: #ff0a26;
+}
+
+.cls-5 {
+  opacity: 0.79;
+  mix-blend-mode: multiply;
+}
+
+.cls-6 {
+  fill: #e3e3e3;
+}
+
+.cls-7 {
+  fill: gray;
+}
+
+.cls-8 {
+  fill: #d6d6d6;
+}
+
+.cls-9 {
+  fill: #fff;
+}
+
+.cls-10 {
+  fill: #666;
+}

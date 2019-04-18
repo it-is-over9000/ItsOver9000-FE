@@ -4,6 +4,7 @@ import Chess from "chess.js"; // import Chess from  "chess.js"(default) if recie
 
 import Chessboard from "chessboardjsx";
 import Navbar from './Navbar'
+import Gauge from './Gauge'
 
 import axios from 'axios'
 
@@ -21,7 +22,8 @@ class HumanVsHuman extends Component {
     // currently clicked square
     square: "",
     // array of past game moves
-    history: []
+    history: [],
+    degrees: null
   };
 
   componentDidMount() {
@@ -154,15 +156,19 @@ class HumanVsHuman extends Component {
           .post ( 'https://over9000be2.herokuapp.com/api/games', {fen: this.state.fen})
           .then (res => {
               console.log(res)
+              this.setState({
+                degrees: res.data.dummyOutlook
+              })
           })
           .catch(err => console.log(err))
         
    }
 
   render() {
-    const { fen, dropSquareStyle, squareStyles } = this.state;
+    const { fen, dropSquareStyle, squareStyles, degrees} = this.state;
 
     return this.props.children({
+        degrees,
         squareStyles,
         position: fen,
         onMouseOverSquare: this.onMouseOverSquare,
@@ -184,6 +190,7 @@ export default function WithMoveValidation(props) {
         <div>
         <HumanVsHuman >
             {({
+            degrees,
             position,
             onDrop,
             onMouseOverSquare,
@@ -213,7 +220,7 @@ export default function WithMoveValidation(props) {
                 onSquareClick={onSquareClick}
                 onSquareRightClick={onSquareRightClick}
             />
-            <Sidebar passChange={passChange} />
+            <Sidebar passChange={passChange} degrees={degrees} />
             </div>
 
             )}
@@ -243,14 +250,20 @@ const squareStyling = ({ pieceSquare, history }) => {
 };
 
 class Sidebar extends React.Component {
-    constructor() {
-        super()
-
+    constructor(props) {
+        super(props)
+console.log(props.degrees)
         this.state = {
-            fen: ''
+            fen: '',
+            degrees: null
         }
     }
 
+    // componentWillReceiveProps() {
+    //   this.setState({
+    //     degrees:this.props.degrees
+    //   })
+    // }
 
 
     handleChanges = e => {
@@ -259,19 +272,22 @@ class Sidebar extends React.Component {
         })
     }
 
+
+
     render() {
 
         return (
         <div className="sidebar-wrapper">
           <div className="sidebar">
             <div className="side-bar-top">
-              {/* <img src="https://banner2.kisspng.com/20180330/ece/kisspng-pie-chart-diagram-computer-icons-charts-5abed49e9f3a71.3953296515224557106522.jpg"></img> */}
+              <Gauge degrees={this.props.degrees}/>
             </div>
             <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
                 <h3 className="white-text">Paste a FEN score here to set your board:</h3>
                 <input name="fen" placeholder="" onChange={this.handleChanges} value={this.state.fen} className="fen-input"></input>
                 <button type="submit" className="fen-btn" >Set Board</button>
             </form>
+            <h2 className="white-text">{this.props.degrees}</h2>
           </div>
         </div>
         )
