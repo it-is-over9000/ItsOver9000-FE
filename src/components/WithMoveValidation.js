@@ -312,7 +312,7 @@ console.log(props.degrees)
               </div>
             </div>
             <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
-                <h3 className="white-text no-bottom-margin">Paste a FEN score here to set your board:</h3>
+                <h3 className="white-text no-bottom-margin">Paste a FEN string here to set your board:</h3>
                 <input name="fen" placeholder="" onChange={this.handleChanges} value={this.state.fen} className="fen-input"></input>
                   <button type="submit" className="fen-btn" >Set Board</button>
             </form>
