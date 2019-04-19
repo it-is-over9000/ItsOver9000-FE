@@ -17,9 +17,10 @@ class Login extends React.Component {
 
     login = e => {
         e.preventDefault()
+        localStorage.setItem('user', this.state.username)
         
         axios 
-            .post ( 'https://over9000be2.herokuapp.com/api/login', {username: 'newname', password: 'password'})
+            .post ( 'https://over9000be2.herokuapp.com/api/login', {username: this.state.username, password: this.state.password})
             .then (res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.token)
@@ -54,6 +55,7 @@ class Login extends React.Component {
                             <input 
                             value={this.state.password}
                             name="password"
+                            type="password"
                             placeholder="password"
                             onChange={this.handleChanges}
                             />

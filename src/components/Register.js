@@ -54,6 +54,7 @@ class Register extends React.Component {
                             <input 
                             value={this.state.password}
                             name="password"
+                            type="password"
                             placeholder="password"
                             onChange={this.handleChanges}
                             />

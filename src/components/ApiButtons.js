@@ -30,6 +30,7 @@ class ApiButtons extends React.Component {
             .then (res => {
                 console.log(res)
                 localStorage.setItem('token', res.data.token)
+                localStorage.setItem()
             })
             .catch(err => console.log(err))
     }
@@ -50,7 +51,7 @@ class ApiButtons extends React.Component {
         e.preventDefault()
         
         withAuth()
-            .put ('https://over9000be2.herokuapp.com/api/users/5', {username: 'extranewname'})
+            .put ('https://over9000be2.herokuapp.com/api/users', {username: 'extranewname'})
             .then (res => {
                 console.log(res)
                 // localStorage.setItem('token', res.data.token)

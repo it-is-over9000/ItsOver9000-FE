@@ -171,7 +171,7 @@ body {
 
 .changename-btn {
   height: 50px;
-  font-size: 24px;
+  font-size: 16px;
   color: white;
   background-color: #151924;
   border: 3.5px solid white;
@@ -179,6 +179,7 @@ body {
   opacity: 1.0;
   outline: none;
   cursor: pointer;
+  margin-bottom: 10px;
 }
 
 .account-h1 {
@@ -187,14 +188,25 @@ body {
 
 .user-dashboard {
   display: flex;
-  flex-direction: column;
+  /* flex-direction: column; */
   justify-content: center;
   align-items: center;
+  width: 600px;
+  margin-top: 60px;
+  border: 1px solid white;
+  border-radius: 15px;
+  padding: 40px;
+}
+
+.user-dashboard-wrapper {
+  display: flex;
+  justify-content: center;
 }
 
 .delete-btn {
   height: 50px;
-  font-size: 24px;
+  font-size: 16px;
+  /* padding: 10px; */
   color: red;
   background-color: #151924;
   border: 3.5px solid red;
@@ -520,3 +532,4 @@ form {
   display: flex;
   justify-content:center;
 }
+
