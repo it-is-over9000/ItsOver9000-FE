@@ -178,6 +178,7 @@ body {
   border-radius: 30px;
   opacity: 1.0;
   outline: none;
+  cursor: pointer;
 }
 
 .account-h1 {
@@ -200,6 +201,7 @@ body {
   border-radius: 30px;
   opacity: 1.0;
   outline: none;
+  cursor: pointer;
 }
 
 .success-message {
@@ -465,4 +467,56 @@ form {
 .other-login-container {
   display: flex;
   justify-content: center;
+}
+
+.stack-up {
+  text-align: center;
+  font-size: 24px;
+  margin: 0;
+  position: relative;
+  bottom: 25px;
+  color: lightblue;
+  cursor: pointer;
+  text-decoration: none;
+}
+
+.link-wrapper a {
+  text-decoration: none;
+
+}
+
+.stack-up:hover {
+  color: rgb(123, 200, 226);
+}
+
+.chart-wrapper {
+  width: 640px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+}
+
+.chart-wrapper a {
+  text-decoration: none;
+  align-self: flex-start;
+}
+
+.chart-wrapper h2 {
+  align-self: flex-start;
+  font-size: 20px;
+  color: lightblue;
+}
+.chart-wrapper h2:hover {
+  color: rgb(123, 200, 226);
+  cursor: pointer;
+  border-bottom: 2.5px solid white;
+  border-bottom-left-radius: 25%;
+  border-bottom-right-radius: 25%;
+}
+
+.chart-container {
+  display: flex;
+  justify-content:center;
 }

@@ -9,7 +9,8 @@ class UserDashboard extends React.Component {
         super()
 
         this.state = {
-            username: ''
+            username: '',
+            newname: ''
         }
     }
 
@@ -17,12 +18,21 @@ class UserDashboard extends React.Component {
         e.preventDefault()
         
         withAuth()
-            .put ('https://over9000be2.herokuapp.com/api/users/5', {username: this.state.username})
+            .put ('https://over9000be2.herokuapp.com/api/users/', {username: this.state.username})
             .then (res => {
                 console.log(res)
-                // localStorage.setItem('token', res.data.token)
+                localStorage.setItem('user', res.data.username)
+                this.setState({
+                    newname: res.data.username
+                })
             })
             .catch(err => console.log(err))
+    }
+
+    logout = () => {
+        localStorage.removeItem('token')
+        localStorage.removeItem('user')
+        this.props.history.push('/')
     }
 
     deleteUser = e => {
@@ -35,7 +45,19 @@ class UserDashboard extends React.Component {
                 localStorage.removeItem('token')
             })
             .catch(err => console.log(err))
-            this.props.history.push('/login')
+            this.props.history.push('/')
+    }
+
+    getUsers = e => {
+        e.preventDefault()
+        
+        withAuth()
+            .get ('https://over9000be2.herokuapp.com/api/users')
+            .then (res => {
+                console.log(res)
+                // localStorage.setItem('token', res.data.token)
+            })
+            .catch(err => console.log(err))
     }
 
     handleChanges = e => {
@@ -55,7 +77,7 @@ class UserDashboard extends React.Component {
                 <div className="menu" onClick={this.logout}>Log Out</div>
             </div>
             <div className="user-dashboard">
-                <h1 className="account-h1">Hi there {username}</h1>
+                {/* <h1 className="account-h1">Hi there {username}</h1> */}
                 <form onSubmit={this.changeName} className="login-form">
                     <button type="submit" className="changename-btn">Change my username</button>
                         <input 
@@ -65,8 +87,10 @@ class UserDashboard extends React.Component {
                         onChange={this.handleChanges}
                         />
                     </form>
+                    <h2 >Your username was changed to {this.state.newname}</h2>
                 <button onClick={this.deleteUser} className="delete-btn">Delete my account</button>
             </div>
+            <button onClick={this.getUsers}>Get users</button>
         </div>
     )
     }

@@ -30,7 +30,7 @@ class Navbar extends React.Component {
     <div className="navbar">
         <Link to="/account">Account</Link>
         <h2>It's Over 9000!</h2>
-        <div className = "menu" onClick={this.logout}>Log Out</div>
+        <div className="menu" onClick={this.logout}>Log Out</div>
        
     </div>
     )} else {

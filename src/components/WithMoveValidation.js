@@ -1,10 +1,12 @@
 import React, { Component } from "react";
 import PropTypes from "prop-types";
 import Chess from "chess.js"; // import Chess from  "chess.js"(default) if recieving an error about new Chess() not being a constructor
+import { Link } from 'react-router-dom'
 
 import Chessboard from "chessboardjsx";
 import Navbar from './Navbar'
 import Gauge from './Gauge'
+import Chart from './Chart'
 
 import axios from 'axios'
 
@@ -304,6 +306,9 @@ console.log(props.degrees)
               {/* <h4 className="white-text centered marginless">Current Rating</h4> */}
               <div className="btn-wrap">
                 <button className="fen-btn" onClick={this.props.passChangeNoFenReset}>Check Rating</button>
+              </div>
+              <div className="link-wrapper">
+                <Link to="/chess/stats"><span className="white-text"><p className="stack-up">How do I stack up?</p></span></Link>
               </div>
             </div>
             <form onSubmit={e => this.props.passChange(e, this.state.fen)}>
