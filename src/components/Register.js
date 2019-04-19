@@ -37,22 +37,30 @@ class Register extends React.Component {
 
     render() {
         return (
-            <div>
-                <form onSubmit={this.register} className="login-form">
-                    <input 
-                    value={this.state.username}
-                    name="username"
-                    placeholder="user"
-                    onChange={this.handleChanges}
-                    />
-                    <input 
-                    value={this.state.password}
-                    name="password"
-                    placeholder="password"
-                    onChange={this.handleChanges}
-                    />
-                    <button type="submit" className="login-btn">Register</button>
-                </form>
+            <div className="login-page-container">
+                <div className="navbar">
+                    <h2>It's Over 9000!</h2>
+                    {/* <div className = "menu" onClick={this.logout}>Log Out</div>      */}
+                </div>
+                <div className="other-login-container">
+                    <div className="other-login-wrapper">
+                        <form onSubmit={this.register} className="register-form">
+                            <input 
+                            value={this.state.username}
+                            name="username"
+                            placeholder="user"
+                            onChange={this.handleChanges}
+                            />
+                            <input 
+                            value={this.state.password}
+                            name="password"
+                            placeholder="password"
+                            onChange={this.handleChanges}
+                            />
+                            <button type="submit" className="login-btn">Register</button>
+                        </form>
+                    </div>
+                </div>
                 {/* <h2 className="success-message">User {this.state.statusText}</h2> */}
             </div>
         )

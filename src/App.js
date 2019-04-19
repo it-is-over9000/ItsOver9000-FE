@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import './App.css';
 import ReactDOM from 'react-dom'
-import { BrowserRouter as Router, Route } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Link } from 'react-router-dom'
 
 import WithMoveValidation from "./components/WithMoveValidation";
 import Login from './components/Login'
@@ -38,7 +38,9 @@ class App extends Component {
     return (
       <Router>
         <div className="container">
-          <Route path="/" component={FormHolder} />
+          {/* <Route path="/" component={FormHolder} /> */}
+          <Route exact path="/" component={Login} />
+          <Route exact path="/register" component={Register} />
           <Route path="/chess" render={props => <Navbar logout={this.logout} {...props} />} />
           <Route path="/account" component={UserDashboard} />
           <div style={boardsContainer}>

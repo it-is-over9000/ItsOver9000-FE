@@ -65,6 +65,15 @@ span {
   align-items: center;
 }
 
+.register-form {
+  margin-bottom: 20px;
+  padding: 40px 80px;
+  background: black;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
 input {
   background: black;
   border: none;
@@ -434,4 +443,26 @@ input:checked + .slider:before {
 
 form {
   margin-top: 20px;
+}
+
+.register-text {
+  text-align: center;
+  color: white;
+  text-decoration: none;
+}
+
+.other-login-wrapper {
+  width: 340px;
+  /* text-align: center; */
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 80px;
+  border: 1px solid white;
+  border-radius: 15px;
+}
+
+.other-login-container {
+  display: flex;
+  justify-content: center;
 }
