@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "axios": "^0.18.0",
+    "axios": "^0.21.1",
     "chess.js": "^0.10.2",
     "chessboardjsx": "^2.3.0",
     "gsap": "^2.1.2",
