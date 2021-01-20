@@ -6,7 +6,7 @@
     "axios": "^0.18.0",
     "chess.js": "^0.10.2",
     "chessboardjsx": "^2.3.0",
-    "gsap": "^2.1.2",
+    "gsap": "^3.6.0",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-redux": "^7.0.2",
